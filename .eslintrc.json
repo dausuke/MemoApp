@@ -19,5 +19,7 @@
     ],
     "rules": {
         "no-use-before-define":0
+        // "indent":"off",
+        // "react/jsx-indent":"off"
     }
 }
