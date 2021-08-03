@@ -1,10 +1,14 @@
 import React from 'react';
-import { View, ScrollView, Text, StyleSheet } from 'react-native';
+import {
+  View, ScrollView, Text, StyleSheet,
+} from 'react-native';
 
 import AppBar from '../components/AppBar';
 import CircleButton from '../components/CircleButton';
 
 const MemoDitailScreen = () => {
+  const hoge = 'hoge';
+  console.log(hoge);
   return (
     <View style={styles.container}>
       <AppBar />
@@ -19,7 +23,7 @@ const MemoDitailScreen = () => {
           </Text>
         </ScrollView>
       </View>
-      <CircleButton style={{ top: 160, bottom: 'auto' }}>+</CircleButton>
+      <CircleButton style={{ top: 160, bottom: 'auto' }} name="edit-2" />
     </View>
   );
 };
