@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, ScrollView, Text, StyleSheet } from 'react-native';
 
-import AppBar from '../components/AppBar';
 import CircleButton from '../components/CircleButton';
 
-const MemoDitailScreen = () => {
+const MemoDitailScreen = (props) => {
+  const { navigation } = props;
+
   return (
     <View style={styles.container}>
-      <AppBar />
       <View style={styles.memoHeader}>
         <Text style={styles.memoTitle}>買い物リスト</Text>
         <Text style={styles.memoDate}>2020年12月24日 10:00:00</Text>
@@ -15,11 +15,18 @@ const MemoDitailScreen = () => {
       <View>
         <ScrollView style={styles.memoBody}>
           <Text style={styles.memoText}>
-            買い物リスト 書体やレイアウトなどを確認するために用います。 本文用なので使い方を間違えると不自然に見えることもありますので要注意
+            買い物リスト 書体やレイアウトなどを確認するために用います。
+            本文用なので使い方を間違えると不自然に見えることもありますので要注意
           </Text>
         </ScrollView>
       </View>
-      <CircleButton style={{ top: 160, bottom: 'auto' }} name="edit-2" />
+      <CircleButton
+        style={{ top: 60, bottom: 'auto' }}
+        name="edit-2"
+        onPress={() => {
+          navigation.navigate('MemoEdit');
+        }}
+      />
     </View>
   );
 };
