@@ -6,8 +6,6 @@ import MemoList from '../components/MemoList';
 import CircleButton from '../components/CircleButton';
 
 const MemoListScreen = () => {
-  const hoge = 'hoge';
-  console.log(hoge);
   return (
     <View style={styles.container}>
       <AppBar />

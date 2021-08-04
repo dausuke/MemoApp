@@ -4,8 +4,6 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 const MemoList = () => {
-  const hoge = 'hoge';
-  console.log(hoge);
   return (
     <View>
       <View style={styles.memoListItem}>

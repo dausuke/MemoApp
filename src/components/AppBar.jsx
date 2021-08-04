@@ -2,8 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 const AppBar = () => {
-  const hoge = 'hoge';
-  console.log(hoge);
   return (
     <View style={styles.appbar}>
       <View style={styles.appbarInner}>
