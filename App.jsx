@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator, CardStyleInterpolators } from '@react-navigation/native-stack';
+import firebase from 'firebase';
 
 import MemoListScreen from './src/screens/MemoListScreens';
 import MemoDitailScreen from './src/screens/MemoDitailScreens';
@@ -9,7 +10,13 @@ import MemoCreatScreen from './src/screens/MemoCreatScreen';
 import LogInScreen from './src/screens/LogInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 
+import { firebaseConfig } from './env';
+
 const Stack = createNativeStackNavigator();
+
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 export default function App() {
   return (
@@ -26,8 +33,8 @@ export default function App() {
           headerTitle: 'Memo App',
           headerTintColor: '#ffffff',
           headerBackTitle: 'Back',
-          gestureEnabled:true,
-          gestureDirection:'horizontal'
+          gestureEnabled: true,
+          gestureDirection: 'horizontal',
           // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}>
         <Stack.Screen name="MemoList" component={MemoListScreen} />
