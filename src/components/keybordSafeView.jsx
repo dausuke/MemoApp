@@ -53,7 +53,7 @@ export default function KeyboardSafeView({ children, style }) {
       const { height } = nativeEvent.layout;
       // keep viewHeight as null not to trigger useEffect on mounting.
       // Don't do this: setViewHeight(height);
-      initialViewHeight.current = height;
+      initialViewHeight.current = height-40;
       animatedViewHeight.current = new Animated.Value(height);
     }
   };
