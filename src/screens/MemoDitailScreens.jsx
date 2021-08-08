@@ -5,6 +5,7 @@ import firebase from 'firebase';
 
 import CircleButton from '../components/CircleButton';
 import { dateToString } from '../utils';
+
 const MemoDitailScreen = (props) => {
   const { navigation, route } = props;
   const { id } = route.params;
@@ -17,7 +18,6 @@ const MemoDitailScreen = (props) => {
       const db = firebase.firestore();
       const ref = db.collection(`users/${currentUser.uid}/memos`).doc(id);
       unsubscribe = ref.onSnapshot((doc) => {
-        console.log(doc.id, doc.data());
         const data = doc.data();
         setMemo({
           id: doc.id,
@@ -53,7 +53,7 @@ const MemoDitailScreen = (props) => {
   );
 };
 
-MemoDitailScreen.prototype = {
+MemoDitailScreen.propTypes = {
   route: shape({
     params: shape({
       id: string,

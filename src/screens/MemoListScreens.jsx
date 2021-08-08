@@ -38,10 +38,10 @@ const MemoListScreen = (props) => {
           setMemos(userMemos);
           setLoading(false);
         },
-        (error) => {
+        () => {
           setLoading(false);
           Alert.alert('データの読み込みに失敗しました');
-        }
+        },
       );
     }
     return unsubscribe;
@@ -58,7 +58,8 @@ const MemoListScreen = (props) => {
             label="作成する"
             onPress={() => {
               navigation.navigate('MemoCreat');
-            }}></Button>
+            }}
+          />
         </View>
       </View>
     );

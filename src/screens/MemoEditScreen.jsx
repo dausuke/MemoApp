@@ -46,7 +46,7 @@ const MemoEditScreen = (props) => {
   );
 };
 
-MemoEditScreen.prototype = {
+MemoEditScreen.propTypes = {
   route: shape({
     params: shape({
       id: string,

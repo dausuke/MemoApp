@@ -17,7 +17,7 @@ const Loading = (props) => {
   );
 };
 
-Loading.prototype = {
+Loading.propTypes = {
   isLoading: bool,
 };
 Loading.defaultProps = {

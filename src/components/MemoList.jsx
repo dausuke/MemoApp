@@ -36,7 +36,8 @@ const MemoList = (props) => {
         style={styles.memoListItem}
         onPress={() => {
           navigation.navigate('MemoDitail', { id: item.id });
-        }}>
+        }}
+      >
         <View>
           <Text style={styles.memoListItemTitle} numberOfLines={1}>
             {item.bodyText}
@@ -47,7 +48,8 @@ const MemoList = (props) => {
           style={styles.memoDelete}
           onPress={() => {
             deletMemo(item.id);
-          }}>
+          }}
+        >
           <Feather name="x" size={16} color="#B0B0B0" />
         </TouchableOpacity>
       </TouchableOpacity>
@@ -61,13 +63,13 @@ const MemoList = (props) => {
   );
 };
 
-MemoList.prototype = {
+MemoList.propTypes = {
   memos: arrayOf(
     shape({
       id: string,
       bodyText: string,
       updatedAt: instanceOf(Date),
-    })
+    }),
   ).isRequired,
 };
 

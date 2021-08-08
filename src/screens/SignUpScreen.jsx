@@ -14,9 +14,7 @@ const SignUpScreen = (props) => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        const { user } = userCredential;
-        console.log(user.uid);
+      .then(() => {
         navigation.reset({
           index: 0,
           routes: [{ name: 'MemoList' }],
@@ -63,7 +61,8 @@ const SignUpScreen = (props) => {
                 index: 0,
                 routes: [{ name: 'LogIn' }],
               });
-            }}>
+            }}
+          >
             <Text style={styles.footerLink}>Log In.</Text>
           </TouchableOpacity>
         </View>

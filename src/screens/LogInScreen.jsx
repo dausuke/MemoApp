@@ -31,9 +31,7 @@ const LogInScreen = (props) => {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        const { user } = userCredential;
-        console.log(user.uid);
+      .then(() => {
         navigation.reset({
           index: 0,
           routes: [{ name: 'MemoList' }],
@@ -83,7 +81,8 @@ const LogInScreen = (props) => {
                 index: 0,
                 routes: [{ name: 'SignUp' }],
               });
-            }}>
+            }}
+          >
             <Text style={styles.footerLink}>Sing Up Here!</Text>
           </TouchableOpacity>
         </View>
