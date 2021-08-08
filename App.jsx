@@ -1,4 +1,5 @@
 import React from 'react';
+import { LogBox } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator, CardStyleInterpolators } from '@react-navigation/native-stack';
 import firebase from 'firebase';
@@ -9,15 +10,16 @@ import MemoEditScreen from './src/screens/MemoEditScreen';
 import MemoCreatScreen from './src/screens/MemoCreatScreen';
 import LogInScreen from './src/screens/LogInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
-
 import { firebaseConfig } from './env';
-require('firebase/firestore')
+
+require('firebase/firestore');
+
 if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 
 const Stack = createNativeStackNavigator();
-
+LogBox.ignoreLogs(['setting a timer']);
 
 export default function App() {
   return (
@@ -37,7 +39,8 @@ export default function App() {
           gestureEnabled: true,
           gestureDirection: 'horizontal',
           // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-        }}>
+        }}
+      >
         <Stack.Screen name="MemoList" component={MemoListScreen} />
         <Stack.Screen name="MemoDitail" component={MemoDitailScreen} />
         <Stack.Screen name="MemoEdit" component={MemoEditScreen} />
