@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity,Alert } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
 import firebase from 'firebase';
 
 import Button from '../components/Button';
+import { translateErrors } from '../utils';
 
 const SignUpScreen = (props) => {
   const { navigation } = props;
@@ -22,8 +23,8 @@ const SignUpScreen = (props) => {
         });
       })
       .catch((error) => {
-        console.log(error.code, error.message);
-        Alert.alert(error.code)
+        const errorMsg = translateErrors(error.code);
+        Alert.alert(errorMsg.title, errorMsg.discripion);
       });
   };
 
